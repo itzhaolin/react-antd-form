@@ -13,3 +13,9 @@
 
 ### `yarn eject`
 * 暴露webpack配置
+
+## antd-form版本对比
+|       | 创建方法 |   区别   |
+| :---- | :----: | :----: |
+| v3    |  Form.create() | 1 |
+| v4    |  Form.useForm() | 1 |
