@@ -20,21 +20,25 @@ function NewForm(props) {
     const [form] = Form.useForm()
 
     const onFinish = values => {
-      console.log(values)
+      // 校验通过后 才触发此方法
+      let obj = form.getFieldValue('name')
+      console.log(values, obj)
+
     }
 
     const onFinishFailed = ({ values, errorFields, outOfDate }) => {
-        console.log(values, errorFields, outOfDate )
+        console.log('error:', values, errorFields, outOfDate )
     }
 
     useEffect(() => {
-        console.log('componentDidMount---')
+        console.log(form, 'componentDidMount---')
         /**
          * 此处请求接口详情后, 可用setFieldsValue 进行赋值
          */
         form.setFieldsValue({
             name: 'zhangsan'
         })
+        // form.validateFields().then(res => console.log(res)) // 触发校验
     }, [])
 
     return (

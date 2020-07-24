@@ -41,6 +41,9 @@ class ClassForm extends Component {
             pic: 'xxx.png'
         })
     }
+    resetForm = () => {
+        this.formRef.current.resetFields()
+    }
 
     render() {
         return (
@@ -91,8 +94,9 @@ class ClassForm extends Component {
                     </Form.Item>
                     <Form.Item {...footerLayout}>
                         <Button type="primary" htmlType="submit">
-                        Submit
+                            提交
                         </Button>
+                        <Button children="重置" onClick={this.resetForm} style={{marginLeft: '16px'}}/>
                     </Form.Item>
                 </Form>
             </div>
