@@ -66,8 +66,8 @@ function HookForm(props) {
 }
 export default HookForm
 ```
-
-![Home](https://github.com/itzhaolin/react-antd-form/blob/master/assets/1.png)
-![ClassForm](https://github.com/itzhaolin/react-antd-form/blob/master/assets/2.png)
-![HookForm](https://github.com/itzhaolin/react-antd-form/blob/master/assets/3.png)
-![EditForm](https://github.com/itzhaolin/react-antd-form/blob/master/assets/4.png)
+<!-- https://github.com/你的用户名/你的repository仓库名/raw/分支名master/刚你新建的图片文件夹名称/***.png -->
+![Home](https://github.com/itzhaolin/react-antd-form/raw/master/assets/1.png)
+![ClassForm](https://github.com/itzhaolin/react-antd-form/raw/master/assets/2.png)
+![HookForm](https://github.com/itzhaolin/react-antd-form/raw/master/assets/3.png)
+![EditForm](https://github.com/itzhaolin/react-antd-form/raw/master/assets/4.png)
