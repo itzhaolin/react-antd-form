@@ -9,9 +9,9 @@ function Home (props) {
     return(
         <div className={styles.home}>
             <div className="title">Home</div>
-            <Button onClick={()=>history.push(`/newForm`)}>newForm</Button>
             <Button onClick={()=>history.push(`/classForm`)}>classForm</Button>
             <Button onClick={()=>history.push(`/hookForm`)}>hookForm</Button>
+            <Button onClick={()=>history.push(`/editForm`)}>editForm</Button>
         </div>
     )
 }

@@ -3,7 +3,7 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 // import logo from './logo.svg';
 import './App.css';
 import Home from './modules/Home'
-import NewForm from './modules/NewForm'
+import EditForm from './modules/EditForm'
 import ClassForm from './modules/ClassForm'
 import HookForm from './modules/HookForm'
 
@@ -15,9 +15,9 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Home}></Route>
-          <Route exact path="/newForm" component={NewForm}></Route>
           <Route exact path="/classForm" component={ClassForm}></Route>
           <Route exact path="/hookForm" component={HookForm}></Route>
+          <Route exact path="/editForm" component={EditForm}></Route>
         </Switch>
       </Router>
       
