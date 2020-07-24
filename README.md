@@ -1,6 +1,6 @@
-## This project was created by Create React App.
+## 该项目使用 Create React App 搭建
 
-> It's using of testing antd-form(v4+).
+> 使用的UI组件库是 antd-form(v4+).
 
 ### `yarn`
 * 安装
@@ -67,7 +67,7 @@ function HookForm(props) {
 export default HookForm
 ```
 
-![](./assets/1.png)
-![](./assets/2.png)
-![](./assets/3.png)
-![](./assets/4.png)
+![Home](https://github.com/itzhaolin/react-antd-form/blob/master/assets/1.png)
+![ClassForm](https://github.com/itzhaolin/react-antd-form/blob/master/assets/2.png)
+![HookForm](https://github.com/itzhaolin/react-antd-form/blob/master/assets/3.png)
+![EditForm](https://github.com/itzhaolin/react-antd-form/blob/master/assets/4.png)
