@@ -48,8 +48,7 @@ export function get(url, params = {}) {
     axios.get(url, {
         params: params,
       }).then((response) => {
-        landing(url, params, response.data);
-        resolve(response.data);
+        resolve(response?.data);
       })
       .catch((error) => {
         reject(error);
@@ -69,7 +68,7 @@ export function post(url, data) {
     axios.post(url, data).then(
       (response) => {
         //关闭进度条
-        resolve(response.data);
+        resolve(response?.data);
       },
       (err) => {
         reject(err);
@@ -119,6 +118,57 @@ export function put(url, data = {}) {
   });
 }
 
+//失败提示
+function msag(err) {
+    if (err && err.response) {
+      switch (err.response.status) {
+        case 400:
+          alert(err.response.data.error.details);
+          break;
+        case 401:
+          alert("未授权，请登录");
+          break;
+  
+        case 403:
+          alert("拒绝访问");
+          break;
+  
+        case 404:
+          alert("请求地址出错");
+          break;
+  
+        case 408:
+          alert("请求超时");
+          break;
+  
+        case 500:
+          alert("服务器内部错误");
+          break;
+  
+        case 501:
+          alert("服务未实现");
+          break;
+  
+        case 502:
+          alert("网关错误");
+          break;
+  
+        case 503:
+          alert("服务不可用");
+          break;
+  
+        case 504:
+          alert("网关超时");
+          break;
+  
+        case 505:
+          alert("HTTP版本不受支持");
+          break;
+        default:
+      }
+    }
+  }
+
 //统一接口处理，返回数据
 export default function (fecth, url, param) {
   return new Promise((resolve, reject) => {
@@ -148,66 +198,4 @@ export default function (fecth, url, param) {
         break;
     }
   });
-}
-
-//失败提示
-function msag(err) {
-  if (err && err.response) {
-    switch (err.response.status) {
-      case 400:
-        alert(err.response.data.error.details);
-        break;
-      case 401:
-        alert("未授权，请登录");
-        break;
-
-      case 403:
-        alert("拒绝访问");
-        break;
-
-      case 404:
-        alert("请求地址出错");
-        break;
-
-      case 408:
-        alert("请求超时");
-        break;
-
-      case 500:
-        alert("服务器内部错误");
-        break;
-
-      case 501:
-        alert("服务未实现");
-        break;
-
-      case 502:
-        alert("网关错误");
-        break;
-
-      case 503:
-        alert("服务不可用");
-        break;
-
-      case 504:
-        alert("网关超时");
-        break;
-
-      case 505:
-        alert("HTTP版本不受支持");
-        break;
-      default:
-    }
-  }
-}
-
-/**
- * 查看返回的数据
- * @param url
- * @param params
- * @param data
- */
-function landing(url, params, data) {
-  if (data.code === -1) {
-  }
 }

@@ -25,11 +25,15 @@ class ClassForm extends Component {
         this.formRef = createRef()
     }
     componentDidMount() {
-        http('get',"/userList").then(res => console.log(res))
+        http('get',"/api/userList").then(res => console.log(res))
     }
 
     onFinish = (values) => {
         console.log(values)
+        http('post', '/api/login', {
+            name: values.name,
+            pwd: values.age
+        }).then(res => console.log(res))
     }
 
     onFinishFailed = ({ values, errorFields, outOfDate }) => {
