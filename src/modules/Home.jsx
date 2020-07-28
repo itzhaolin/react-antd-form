@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button } from 'antd'
 
 import styles from './Home.module.less'
   
 function Home (props) {
+
+    useEffect(() => {
+        console.log(this, 'this---')
+    }, [])
    
     const { history } = props
     return(

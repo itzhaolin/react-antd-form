@@ -1,6 +1,8 @@
 import React, { Component, createRef } from 'react'
 import { Form, Input, InputNumber, Button } from 'antd'
 
+import http from '../http'
+
 // const CREATE = Form.create()
 
 const layout = {
@@ -23,7 +25,7 @@ class ClassForm extends Component {
         this.formRef = createRef()
     }
     componentDidMount() {
-        console.log(this.props, 'props---')
+        http('get',"/userList").then(res => console.log(res))
     }
 
     onFinish = (values) => {

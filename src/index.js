@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App.jsx';
 import * as serviceWorker from './serviceWorker';
+import axios from "axios";
+
+// this.axios 全局直接请求
+React.Component.prototype.axios = axios;
 
 ReactDOM.render(
   // <React.StrictMode>
