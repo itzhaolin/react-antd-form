@@ -1,5 +1,5 @@
 import React, { Component, createRef } from 'react'
-import { Form, Input, InputNumber, Button } from 'antd'
+import { Form, Input, InputNumber, Button, Upload } from 'antd'
 
 import http from '../http'
 
@@ -17,11 +17,14 @@ const footerLayout = {
     }
 }
 
+function beforeUpload () {
+
+}
 
 class ClassForm extends Component {
     constructor(props) {
         super(props)
-        this.sate={ }
+        this.state = { imageUrl: '' }
         this.formRef = createRef()
     }
     componentDidMount() {
@@ -50,8 +53,28 @@ class ClassForm extends Component {
     resetForm = () => {
         this.formRef.current.resetFields()
     }
+    handleChange = info => {
+        console.log(info, 'file')
+        // if (info.file.status === 'uploading') {
+        //   this.setState({ loading: true });
+        //   return;
+        // }
+        if (info.file.status === 'done') {
+          // Get this url from response in real world.
+        //   getBase64(info.file.originFileObj, imageUrl =>
+        //     this.setState({
+        //       imageUrl,
+        //       loading: false,
+        //     }),
+        //   );
+        this.setState({
+            imageUrl: info.file?.response?.url
+        })
+        }
+      };
 
     render() {
+        const { imageUrl } = this.state
         return (
             <div>
                 ClassForm
@@ -97,6 +120,16 @@ class ClassForm extends Component {
                         ]}
                     >
                         <Button onClick={this.setPic}>设置头像地址</Button>
+                        <Upload
+                            listType="picture-card"
+                            className="avatar-uploader"
+                            showUploadList={false}
+                            action="http://localhost:3001/api/upload"
+                            beforeUpload={beforeUpload}
+                            onChange={this.handleChange}
+                        >
+                            {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : '+'}
+                        </Upload>
                     </Form.Item>
                     <Form.Item {...footerLayout}>
                         <Button type="primary" htmlType="submit">
