@@ -23,18 +23,32 @@
             // 指定图表的配置项和数据
             var option = {
                 color,
-                graphic:{       //图形中间文字
-                    type:"text",
-                    left:"center",
-                    top:"center",
-                    style:{
-                        text:  `${3346}人 \n 接待总次数/人数`,
-                        textAlign: "center",
-                        fill: "#919191",
-                        align: 'center',
-                        fontSize: 16
+                graphic: [
+                    {       //图形中间文字
+                        type:"text",
+                        left:"center",
+                        top:"45%",
+                        style:{
+                            text:  `${3346}人`,
+                            textAlign: "center",
+                            fill: "#888888",
+                            align: 'center',
+                            fontSize: 16
+                        }
+                    },
+                    {       //图形中间文字
+                        type: "text",
+                        left: "center",
+                        top: "50%",
+                        style:{
+                            text:  `接待总次数/人数`,
+                            textAlign: "center",
+                            fill: "#a9a9a9",
+                            align: 'center',
+                            fontSize: 12
+                        }
                     }
-                },
+                ],
                 series: [
                     {
                         // name: '访问来源',

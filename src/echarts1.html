@@ -30,18 +30,32 @@
             // 指定图表的配置项和数据
             var option = {
                 color: color.splice(2),
-                graphic:{       //图形中间文字
-                    type:"text",
-                    left:"center",
-                    top:"center",
-                    style:{
-                        text:  `${239} \n 入会总张数`,
-                        textAlign: "center",
-                        fill: "#b2b2b2",
-                        align: 'center',
-                        fontSize: 12
+                graphic: [
+                    {       //图形中间文字
+                        type:"text",
+                        left:"center",
+                        top:"45%",
+                        style:{
+                            text:  `${239}`,
+                            textAlign: "center",
+                            fill: "#cd5f5c",
+                            align: 'center',
+                            fontSize: 16
+                        }
+                    },
+                    {       //图形中间文字
+                        type: "text",
+                        left: "center",
+                        top: "50%",
+                        style: {
+                            text:  `入会总张数`,
+                            textAlign: "center",
+                            fill: "#3b393a",
+                            align: 'center',
+                            fontSize: 12
+                        }
                     }
-                },
+                ],
                 series: [
                     {
                         color: color.splice(0,2),
