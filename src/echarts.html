@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <!-- 引入 ECharts 文件 -->
+        <script src="https://cdn.jsdelivr.net/npm/echarts@4.8.0/dist/echarts.min.js"></script>
+</head>
+<body>
+        <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+        <div id="main" style="width: 600px;height:400px;"></div>
+        <div id="main2" style="width: 600px;height:150px;"></div>
+        <span style="margin-left: 50px;color:#ccc;">接待总人次金额: 79415.00</span>
+        <script type="text/javascript">
+            const color = ['#f29c52','#ec5f61','#72cafa','#b76af7','#86dfa4']
+            const items = ['烫发', '染发', '剪发', '护发', '头皮']
+            const data = [1, 3, 7, 3, 2]
+            const sumData = data.reduce((v,s) => { s +=v; return s; }, 0)
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('main'));
+    
+            // 指定图表的配置项和数据
+            var option = {
+                color,
+                graphic:{       //图形中间文字
+                    type:"text",
+                    left:"center",
+                    top:"center",
+                    style:{
+                        text:  `${3346}人 \n 接待总次数/人数`,
+                        textAlign: "center",
+                        fill: "#919191",
+                        align: 'center',
+                        fontSize: 16
+                    }
+                },
+                series: [
+                    {
+                        // name: '访问来源',
+                        type: 'pie',
+                        radius: ['40%', '70%'],
+                        label: {
+                            show: false,
+                            // fontSize: '20',
+                            // fontWeight: 'bold',
+                            // position: 'center',
+                            color: '#747474',
+                            formatter: (params) => {
+                                //  \n 接待总次数/人
+                                return '3346人'
+                            }
+                        },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                position: 'outside',
+                                formatter: '{b}: {d}%',
+                                // formatter: (params) => {
+                                //     return (params.name +':'+params.percent+'%')
+                                // }
+                            }
+                        },
+                        data: [
+                            {value: data[0], name: items[0]},
+                            {value: data[1], name: items[1]},
+                            {value: data[2], name: items[2]},
+                            {value: data[3], name: items[3]},
+                            {value: data[4], name: items[4]}
+                        ]
+                    }
+                ]
+            };
+    
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+
+            /***********************************************************/
+             // 基于准备好的dom，初始化echarts实例
+             var myChart2 = echarts.init(document.getElementById('main2'));
+            
+            // 指定图表的配置项和数据
+            var option1 = {
+                color,
+                legend: {
+                    show: false,
+                    data: ['直接访问']
+                },
+                grid: {
+                    show: false,
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    show: false,
+                    type: 'value'
+                },
+                yAxis: {
+                    show: false,
+                    type: 'category',
+                    data: ['周一']
+                },
+                series: [
+                    {
+                        name: items[0],
+                        type: 'bar',
+                        stack: '1',
+                        label: {
+                            show: false,
+                            position: 'outside'
+                        },
+                        labelLine: { show: true },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                formatter: (params) => {
+                                    console.log(params,'ssss')
+                                    const { seriesName, value } = params
+                                    const percent = (value / sumData * 100).toFixed(2)
+                                    return `${seriesName}: ${percent}%`
+                                },
+                            }
+                        },
+                        data: [data[0]]
+                    },
+                    {
+                        name: items[1],
+                        type: 'bar',
+                        stack: '1',
+                        label: {
+                            show: false,
+                            position: 'outside'
+                        },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                formatter: (params)=> {
+                                    const { seriesName, value } = params
+                                    const percent = (value / sumData * 100).toFixed(2)
+                                    return `${seriesName}: ${percent}%`
+                                },
+                            }
+                        },
+                        data: [data[1]]
+                    },
+                    {
+                        name: items[2],
+                        type: 'bar',
+                        stack: '1',
+                        label: {
+                            show: false,
+                            position: 'outside'
+                        },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                formatter: (params)=> {
+                                    const { seriesName, value } = params
+                                    const percent = (value / sumData * 100).toFixed(2)
+                                    return `${seriesName}: ${percent}%`
+                                },
+                            }
+                        },
+                        data: [data[2]]
+                    },
+                    {
+                        name: items[3],
+                        type: 'bar',
+                        stack: '1',
+                        label: {
+                            show: false,
+                            position: 'outside'
+                        },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                formatter: (params)=> {
+                                    const { seriesName, value } = params
+                                    const percent = (value / sumData * 100).toFixed(2)
+                                    return `${seriesName}: ${percent}%`
+                                },
+                            }
+                        },
+                        data: [data[3]]
+                    },
+                    {
+                        name: items[4],
+                        type: 'bar',
+                        stack: '1',
+                        label: {
+                            show: false,
+                            position: 'outside'
+                        },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                formatter: (params)=> {
+                                    const { seriesName, value } = params
+                                    const percent = (value / sumData * 100).toFixed(2)
+                                    return `${seriesName}: ${percent}%`
+                                },
+                            }
+                        },
+                        data: [data[4]]
+                    }
+                ]
+            };
+            // 使用刚指定的配置项和数据显示图表。
+            myChart2.setOption(option1);
+
+        </script>
+</body>
+</html>

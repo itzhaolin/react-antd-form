@@ -33,9 +33,10 @@ class ClassForm extends Component {
 
     onFinish = (values) => {
         console.log(values)
-        http('post', '/api/login', {
+        http('post', '/api/register', {
             name: values.name,
-            pwd: values.age
+            pwd: values.age,
+            wechat: this.state.imageUrl
         }).then(res => console.log(res))
     }
 
@@ -69,6 +70,11 @@ class ClassForm extends Component {
         //   );
         this.setState({
             imageUrl: info.file?.response?.url
+        })
+        // console.log(this.formRef.current, 'this.formRef.current')
+        const { setFieldsValue } = this.formRef.current
+        setFieldsValue({
+            pic: info.file?.response?.url
         })
         }
       };
@@ -112,6 +118,7 @@ class ClassForm extends Component {
                     <Form.Item
                         label="头像"
                         name="pic"
+                        initialValue="[]"
                         rules={[
                         {
                             required: true,
@@ -119,7 +126,7 @@ class ClassForm extends Component {
                         },
                         ]}
                     >
-                        <Button onClick={this.setPic}>设置头像地址</Button>
+                        {/* <Button onClick={this.setPic}>设置头像地址</Button> */}
                         <Upload
                             listType="picture-card"
                             className="avatar-uploader"

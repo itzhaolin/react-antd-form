@@ -39,7 +39,7 @@ function NewForm(props) {
             name: 'zhangsan'
         })
         // form.validateFields().then(res => console.log(res)) // 触发校验
-    }, [])
+    })
 
     return (
         <div>
