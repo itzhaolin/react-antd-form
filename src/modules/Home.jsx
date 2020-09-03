@@ -3,6 +3,8 @@ import { Button } from 'antd'
 
 import styles from './Home.module.less'
   
+import { FormattedMessage } from 'react-intl'
+
 function Home (props) {
 
     useEffect(() => {
@@ -12,10 +14,12 @@ function Home (props) {
     const { history } = props
     return(
         <div className={styles.home}>
-            <div className="title">Home</div>
-            <Button onClick={()=>history.push(`/classForm`)}>classForm</Button>
-            <Button onClick={()=>history.push(`/hookForm`)}>hookForm</Button>
-            <Button onClick={()=>history.push(`/editForm`)}>editForm</Button>
+            <div className="title">
+                <FormattedMessage id="hello"/>
+            </div>
+            <Button onClick={()=>history.push(`/classForm`)}><FormattedMessage id="class.form"/></Button>
+            <Button onClick={()=>history.push(`/hookForm`)}><FormattedMessage id="hook.form"/></Button>
+            <Button onClick={()=>history.push(`/editForm`)}><FormattedMessage id="edit.form"/></Button>
         </div>
     )
 }

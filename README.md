@@ -14,6 +14,8 @@
 ### `yarn eject`
 * 暴露webpack配置
 
+> 项目国际化使用 react-intl
+
 ## antd-form版本对比 - [官网描述](https://ant.design/docs/react/migration-v4-cn)
 |       | 创建方法 |   区别   |
 | :---- | :---- | :---- |
