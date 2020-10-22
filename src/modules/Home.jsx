@@ -17,9 +17,10 @@ function Home (props) {
             <div className="title">
                 <FormattedMessage id="hello"/>
             </div>
-            <Button onClick={()=>history.push(`/classForm`)}><FormattedMessage id="class.form"/></Button>
-            <Button onClick={()=>history.push(`/hookForm`)}><FormattedMessage id="hook.form"/></Button>
-            <Button onClick={()=>history.push(`/editForm`)}><FormattedMessage id="edit.form"/></Button>
+            <Button onClick={()=>history.push(`/ClassForm`)}><FormattedMessage id="class.form"/></Button>
+            <Button onClick={()=>history.push(`/HookForm`)}><FormattedMessage id="hook.form"/></Button>
+            <Button onClick={()=>history.push(`/EditForm`)}><FormattedMessage id="edit.form"/></Button>
+            <Button onClick={()=>history.push(`/UseRefComp`)}>UseRefComp</Button>
         </div>
     )
 }

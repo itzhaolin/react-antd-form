@@ -6,12 +6,15 @@ import Home from './modules/Home'
 import EditForm from './modules/EditForm'
 import ClassForm from './modules/ClassForm'
 import HookForm from './modules/HookForm'
+import UseRefComp from './modules/UseRefComp'
 
-import {createIntl, createIntlCache, RawIntlProvider, IntlProvider} from 'react-intl'
+import {IntlProvider} from 'react-intl'
 import zh_CN from './locales/zh_CN'
 import en_US from './locales/en_US'
 import zhCN from 'antd/es/locale/zh_CN'
 import enUS from 'antd/es/locale/en_US'
+
+// import intl from 'react-intl-universal'
 
 const mapObj = {
   'zh': zh_CN,
@@ -22,7 +25,7 @@ function App() {
   const [show, setShow] = useState(false)
   return (
     <div className="App">
-      <IntlProvider locale={'zh'} messages={mapObj[lang]}>
+      <IntlProvider locale={lang} messages={mapObj[lang]}>
         <Button onClick={() => setLang('en')}>切换英文</Button>
         <Button onClick={() => setLang('zh')}>切换中文</Button>
         <Button onClick={() => setShow(!show)}>测试antd语言包</Button>
@@ -34,9 +37,10 @@ function App() {
           <Router>
             <Switch>
               <Route exact path="/" component={Home}></Route>
-              <Route exact path="/classForm" component={ClassForm}></Route>
-              <Route exact path="/hookForm" component={HookForm}></Route>
-              <Route exact path="/editForm" component={EditForm}></Route>
+              <Route exact path="/ClassForm" component={ClassForm}></Route>
+              <Route exact path="/HookForm" component={HookForm}></Route>
+              <Route exact path="/EditForm" component={EditForm}></Route>
+              <Route exact path="/UseRefComp" component={UseRefComp}></Route>
             </Switch>
           </Router>
         </ConfigProvider>
